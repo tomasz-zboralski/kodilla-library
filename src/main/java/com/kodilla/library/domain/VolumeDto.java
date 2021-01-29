@@ -5,12 +5,12 @@ import lombok.Getter;
 
 import java.util.List;
 
-@Getter
 @AllArgsConstructor
-public class BookDto {
+@Getter
+public class VolumeDto {
     private Long id;
-    private String title;
-    private String author;
-    private int published;
-    private List<Volume> volumeList;
+    private Book book;
+    private String status;
+
+
 }
