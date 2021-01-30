@@ -1,10 +1,12 @@
 package com.kodilla.library.mapper;
 
 import com.kodilla.library.domain.*;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Service
 public class LibraryMapper {
 
     public Book mapToBook(final BookDto bookDto) {
@@ -28,8 +30,8 @@ public class LibraryMapper {
     public Borrowing mapToBorrowing(final BorrowingDto borrowingDto) {
         return new Borrowing(
                 borrowingDto.getId(),
-                borrowingDto.getVolumes(),
-                borrowingDto.getUsers(),
+                borrowingDto.getVolume(),
+                borrowingDto.getUser(),
                 borrowingDto.getBorrowed(),
                 borrowingDto.getReturned()
         );
@@ -38,8 +40,8 @@ public class LibraryMapper {
     public BorrowingDto mapToBorrowingDto(final Borrowing borrowing) {
         return new BorrowingDto(
                 borrowing.getId(),
-                borrowing.getVolumes(),
-                borrowing.getUsers(),
+                borrowing.getVolume(),
+                borrowing.getUser(),
                 borrowing.getBorrowed(),
                 borrowing.getReturned()
         );
@@ -50,7 +52,8 @@ public class LibraryMapper {
                 userDto.getId(),
                 userDto.getName(),
                 userDto.getSurname(),
-                userDto.getCreated()
+                userDto.getCreated(),
+                userDto.getBorrowingList()
         );
     }
 
@@ -59,7 +62,8 @@ public class LibraryMapper {
                 user.getId(),
                 user.getName(),
                 user.getSurname(),
-                user.getCreated()
+                user.getCreated(),
+                user.getBorrowingList()
         );
     }
 
@@ -67,7 +71,8 @@ public class LibraryMapper {
         return new Volume(
                 volumeDto.getId(),
                 volumeDto.getBook(),
-                volumeDto.getStatus()
+                volumeDto.getStatus(),
+                volumeDto.getBorrowingList()
         );
     }
 
@@ -75,7 +80,8 @@ public class LibraryMapper {
         return new VolumeDto(
                 volume.getId(),
                 volume.getBook(),
-                volume.getStatus()
+                volume.getStatus(),
+                volume.getBorrowingList()
         );
     }
 
@@ -97,5 +103,10 @@ public class LibraryMapper {
                 .collect(Collectors.toList());
     }
 
+    public List<BorrowingDto> mapToBorrowingDtoList(final List<Borrowing> borrowingList) {
+        return borrowingList.stream()
+                .map(this::mapToBorrowingDto)
+                .collect(Collectors.toList());
+    }
 
 }

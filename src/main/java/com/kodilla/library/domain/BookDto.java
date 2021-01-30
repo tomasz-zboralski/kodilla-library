@@ -3,6 +3,7 @@ package com.kodilla.library.domain;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Getter
@@ -12,5 +13,5 @@ public class BookDto {
     private String title;
     private String author;
     private int published;
-    private List<Volume> volumeList;
+    private List<Volume> volumeList = new ArrayList<>();
 }

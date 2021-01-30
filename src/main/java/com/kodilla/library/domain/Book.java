@@ -35,7 +35,7 @@ public class Book {
 
     @OneToMany(
             targetEntity = Volume.class,
-            mappedBy = "books",
+            mappedBy = "book",
             cascade = CascadeType.ALL,
             fetch = FetchType.LAZY
     )

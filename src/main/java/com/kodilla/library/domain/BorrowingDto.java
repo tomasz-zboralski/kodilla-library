@@ -10,8 +10,8 @@ import java.util.List;
 @Getter
 public class BorrowingDto {
     Long id;
-    List<Volume> volumes;
-    List<User> users;
+    Volume volume;
+    User user;
     Date borrowed;
     Date returned;
 
