@@ -22,13 +22,13 @@ public class DbService {
     @Autowired
     private final BorrowingRepository borrowingRepository;
 
-    //@Autowired
+    @Autowired
     private final VolumeRepository volumeRepository;
 
-    //@Autowired
+    @Autowired
     private final UserRepository userRepository;
 
-    //@Autowired
+    @Autowired
     private final BookRepository bookRepository;
 
     public List<Borrowing> getAllBorrowings() {

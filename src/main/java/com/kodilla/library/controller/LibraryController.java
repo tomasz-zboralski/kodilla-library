@@ -4,12 +4,12 @@ import com.kodilla.library.domain.*;
 import com.kodilla.library.mapper.LibraryMapper;
 import com.kodilla.library.service.DbService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @CrossOrigin(origins = "*")
@@ -18,8 +18,10 @@ import java.util.List;
 @RequestMapping("/v1/library")
 public class LibraryController {
 
-    DbService dbService;
-    LibraryMapper libraryMapper;
+    @Autowired
+    private final DbService dbService;
+    @Autowired
+    private final LibraryMapper libraryMapper;
 
     @RequestMapping(method = RequestMethod.GET, value = "getBorrowings")
     public List<BorrowingDto> getBorrowings() {
