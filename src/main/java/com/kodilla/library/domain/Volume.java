@@ -1,9 +1,6 @@
 package com.kodilla.library.domain;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -11,21 +8,26 @@ import java.util.ArrayList;
 import java.util.List;
 
 @NoArgsConstructor
-@AllArgsConstructor
+//@RequiredArgsConstructor
 @Getter
 @Setter
 @Entity(name = "VOLUMES")
 public class Volume {
+
+
+    //@NonNull
     @Id
     @GeneratedValue
     private Long id;
 
+    @NonNull
     @ManyToOne
     @JoinColumn(name = "BOOK_ID")
     private Book book;
 
+    @NonNull
     @Column(name = "STATUS")
-    private String status;
+    private VolumeStatus status;
 
     @OneToMany(
             targetEntity = Borrowing.class,
@@ -35,5 +37,9 @@ public class Volume {
     )
     private List<Borrowing> borrowingList = new ArrayList<>();
 
-
+    public Volume(Long id, @NonNull Book book, @NonNull VolumeStatus status) {
+        this.id = id;
+        this.book = book;
+        this.status = status;
+    }
 }

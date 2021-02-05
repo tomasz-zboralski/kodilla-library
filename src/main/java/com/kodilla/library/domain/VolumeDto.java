@@ -1,18 +1,18 @@
 package com.kodilla.library.domain;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 
 import java.util.ArrayList;
 import java.util.List;
 
-@AllArgsConstructor
+@RequiredArgsConstructor
 @Getter
 public class VolumeDto {
-    private Long id;
-    private Book book;
-    private String status;
-    private List<Borrowing> borrowingList = new ArrayList<>();
+    private final Long id;
+    private final Book book;
+    private final VolumeStatus status;
+    private final List<Borrowing> borrowingList = new ArrayList<>();
 
 
 }

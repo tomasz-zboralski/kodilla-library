@@ -48,11 +48,28 @@ public class DbService {
         return userRepository.findAll();
     }
 
+    public Book saveBook(final Book book) {
+        return bookRepository.save(book);
+    }
+
     public Volume saveVolume(final Volume volume) {
         return volumeRepository.save(volume);
+    }
+
+    public Borrowing saveBorrowing(final Borrowing borrowing) {
+        return borrowingRepository.save(borrowing);
+    }
+
+    public User saveUser(final User user){
+        return userRepository.save(user);
     }
 
     public Optional<Volume> getVolume(final Long id) {
         return volumeRepository.findById(id);
     }
+
+    public Optional<Book> getBook(final Long id) {
+        return bookRepository.findById(id);
+    }
+
 }

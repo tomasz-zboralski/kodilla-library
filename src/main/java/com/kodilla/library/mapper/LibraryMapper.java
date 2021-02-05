@@ -14,8 +14,7 @@ public class LibraryMapper {
                 bookDto.getId(),
                 bookDto.getTitle(),
                 bookDto.getAuthor(),
-                bookDto.getPublished(),
-                bookDto.getVolumeList()
+                bookDto.getPublished()
         );
     }
     public BookDto mapToBookDto(final Book book) {
@@ -23,8 +22,7 @@ public class LibraryMapper {
                 book.getId(),
                 book.getTitle(),
                 book.getAuthor(),
-                book.getPublished(),
-                book.getVolumeList());
+                book.getPublished());
     }
 
     public Borrowing mapToBorrowing(final BorrowingDto borrowingDto) {
@@ -52,8 +50,7 @@ public class LibraryMapper {
                 userDto.getId(),
                 userDto.getName(),
                 userDto.getSurname(),
-                userDto.getCreated(),
-                userDto.getBorrowingList()
+                userDto.getCreated()
         );
     }
 
@@ -62,8 +59,7 @@ public class LibraryMapper {
                 user.getId(),
                 user.getName(),
                 user.getSurname(),
-                user.getCreated(),
-                user.getBorrowingList()
+                user.getCreated()
         );
     }
 
@@ -71,8 +67,7 @@ public class LibraryMapper {
         return new Volume(
                 volumeDto.getId(),
                 volumeDto.getBook(),
-                volumeDto.getStatus(),
-                volumeDto.getBorrowingList()
+                volumeDto.getStatus()
         );
     }
 
@@ -80,8 +75,7 @@ public class LibraryMapper {
         return new VolumeDto(
                 volume.getId(),
                 volume.getBook(),
-                volume.getStatus(),
-                volume.getBorrowingList()
+                volume.getStatus()
         );
     }
 

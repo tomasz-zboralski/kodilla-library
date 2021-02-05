@@ -1,18 +1,17 @@
 package com.kodilla.library.domain;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 
 import java.util.Date;
-import java.util.List;
 
-@AllArgsConstructor
+@RequiredArgsConstructor
 @Getter
 public class BorrowingDto {
-    Long id;
-    Volume volume;
-    User user;
-    Date borrowed;
-    Date returned;
+    private final Long id;
+    private final Volume volume;
+    private final User user;
+    private final Date borrowed;
+    private final Date returned;
 
 }

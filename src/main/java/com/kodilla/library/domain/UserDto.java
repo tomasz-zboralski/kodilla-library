@@ -1,18 +1,17 @@
 package com.kodilla.library.domain;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
-@AllArgsConstructor
+@RequiredArgsConstructor
 @Getter
 public class UserDto {
-    private Long id;
-    private String name;
-    private String surname;
-    private java.sql.Date created;
-    private List<Borrowing> borrowingList = new ArrayList<>();
+    private final Long id;
+    private final String name;
+    private final String surname;
+    private final java.sql.Date created;
+    private final List<Borrowing> borrowingList = new ArrayList<>();
 }

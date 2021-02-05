@@ -1,34 +1,32 @@
 package com.kodilla.library.domain;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
 @NoArgsConstructor
-@AllArgsConstructor
+//@RequiredArgsConstructor
 @Getter
 @Setter
 @Entity(name = "BOOKS")
 public class Book {
+
+    //@NonNull
     @Id
     @GeneratedValue
     private Long id;
 
-    @NotNull
+    @NonNull
     @Column(name = "TITLE")
     private String title;
 
-    @NotNull
+    @NonNull
     @Column(name = "AUTHOR")
     private String author;
 
-    @NotNull
+    @NonNull
     @Column(name = "PUBLISHED")
     private int published;
 
@@ -40,6 +38,13 @@ public class Book {
             fetch = FetchType.LAZY
     )
     private List<Volume> volumeList = new ArrayList<>();
+
+    public Book(Long id, @NonNull String title, @NonNull String author, @NonNull int published) {
+        this.id = id;
+        this.title = title;
+        this.author = author;
+        this.published = published;
+    }
 
     @Override
     public boolean equals(Object o) {

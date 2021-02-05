@@ -3,28 +3,30 @@ package com.kodilla.library.domain;
 import lombok.*;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 @NoArgsConstructor
-@AllArgsConstructor
+@RequiredArgsConstructor
 @Getter
 @Setter
 @Entity(name = "USERS")
 public class User {
 
+    @NonNull
     @Id
     @GeneratedValue
     private Long id;
 
+    @NonNull
     @Column(name = "FIRSTNAME")
     private String name;
 
+    @NonNull
     @Column(name = "LASTNAME")
     private String surname;
 
+    @NonNull
     @Column(name = "CREATED")
     private java.sql.Date created;
 
